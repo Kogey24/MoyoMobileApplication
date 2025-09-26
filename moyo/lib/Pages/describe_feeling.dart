@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
 class DescribeFeeling extends StatelessWidget {
-  const DescribeFeeling({super.key});
+  DescribeFeeling({super.key});
+
+  final TextEditingController _feelingcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //   appBar: AppBar(
+      //     leading: Builder(
+      //       builder: (context) {
+      //         return Icon(Icons.arrow_back);
+      //       },
+      //     ),
+      //     backgroundColor: Color.fromARGB(255, 19, 78, 94),
+      //   ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -29,6 +39,7 @@ class DescribeFeeling extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextField(
+                  controller: _feelingcontroller,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.pink),
@@ -51,7 +62,9 @@ class DescribeFeeling extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint(" ${_feelingcontroller.text}");
+                  },
                   child: Text(
                     "Match My Feeling",
                     style: TextStyle(color: Colors.black),
